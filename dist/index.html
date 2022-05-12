@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <title>Food</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <input type="text" name="food" id="ingredientName" placeholder="Enter an ingredient ">
+        <button onclick=fetchRecipesData() id="searchRecipes" class="searchBtn">Search</button>
+    </div>
+    <div id="recipes-grid" class="grid-container">
+
+    </div>
+
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+
+
+    <script id="recipes" type="text/x-handlebars-template">
+        <div class="grid-container"> 
+            {{#each recipesData}}
+            <div class="grid-item">
+                <div>
+                    <a href={{href}}>{{title}}</a>
+                    <div><img class="img" src={{thumbnail}}></div>
+                    <div class="text">Ingredients:</div>
+                    <ul class="expand-ul">
+                    {{#each ingredients}}
+                        <li class="li-pad">{{this}}</li>
+                    {{/each}} 
+                    </ul>  
+                </div>
+            </div>
+            
+            {{/each}}
+        </div>
+      </script>
+</body>
+
+</html>
