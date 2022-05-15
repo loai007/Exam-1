@@ -31,9 +31,9 @@ app.get("/recipes/:ingredientName", function (req, res) {
       }
 
       buildRecipes(JSON.parse(data.toString()), recipesArr);
+      res.send(recipesArr);
     }
   );
-  res.send(recipesArr);
 });
 
 app.listen(port, function () {
